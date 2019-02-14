@@ -6,12 +6,12 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './SideBar.component.html',
   styleUrls: ['./SideBar.component.css']
 })
+
 export class SideBarComponent implements OnInit {
-
-  constructor(private _getCountrysService: GetCountrysService) { }
-
+	_data: any;
+  constructor(private getCountrysService: GetCountrysService) { }
   ngOnInit() {
-		this._getCountrysService.getAll().subscribe(data => {console.log(data)})
-  }
-
+		
+		this.getCountrysService.getAll().subscribe(data => this._data = data);
+	}
 }

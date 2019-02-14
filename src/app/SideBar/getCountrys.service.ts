@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-Headers("Access-Control-Allow-Origin", "*")
+
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -8,10 +10,12 @@ Headers("Access-Control-Allow-Origin", "*")
 
 export class GetCountrysService {
 
-constructor(private _http: HttpClient) { }
+constructor(private http: HttpClient) { }
 
 	public getAll() {
-		return this._http.get('http://country.io/names.json');
+		const proxy = "https://cors-anywhere.herokuapp.com/";
+		const url = "http://country.io/names.json";
+		return this.http.get(proxy + url);
 	}
 
 }
