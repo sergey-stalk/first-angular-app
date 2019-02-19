@@ -5,10 +5,6 @@
 			<a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Profile</a>
 		</div>
 	</nav>
-	<div class="tab-content" id="nav-tabContent">
-		<div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">...</div>
-		<div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">...</div>
-	</div>
 		
 	<form>
 		<div class="form-group">
@@ -16,16 +12,14 @@
 		</div>
 	</form>
 
-	<ul class="list-group">
-		<a href="#" class="list-group-item list-group-item-action">Cras justo odio</a>
-		<a href="#" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
-		<a href="#" class="list-group-item list-group-item-action">Morbi leo risus</a>
-		<a href="#" class="list-group-item list-group-item-action">Porta ac consectetur ac</a>
-		<a href="#" class="list-group-item list-group-item-action">Vestibulum at eros</a>
-	</ul>
-	<ul *ngIf="_data">
-		<!-- <li *ngFor="let item of _data">{{item}}</li> -->
-		<li *ngFor="let item of _data">{{_data}}</li>
+	<ul class="list-group"  *ngIf="countris">
+		<li  class="list-group-item list-group-item-action" *ngFor="let item of countris">
+			
+			<div class="list-wrapper">
+				<div class="countrisKey"><p>{{item.key}}</p></div>
+				<div class="countrisValue"><p>{{item.value}}</p></div>
+			</div>
+		</li>
 	</ul>
 </div>
 

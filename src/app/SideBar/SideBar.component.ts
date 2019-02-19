@@ -8,10 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class SideBarComponent implements OnInit {
-	_data: any;
+	countris = []
   constructor(private getCountrysService: GetCountrysService) { }
   ngOnInit() {
-		
-		this.getCountrysService.getAll().subscribe(data => this._data = data);
+		this.getCountrysService.getAll().subscribe((data) => {
+      for (const key in data) {
+        let item = {key:key, value: data[key]}
+        this.countris.push(item)
+      }
+      console.log(this.countris)
+    });
 	}
 }
