@@ -8,9 +8,12 @@ import { Component, OnInit, Input } from '@angular/core';
 export class CountrisListComponent implements OnInit {
   constructor() { }
   @Input('allData') data;
-
+  currentValue = '';
   ngOnInit() {
-    console.log(this.data)
+  }
+  checkNumber(event) {
+    this.currentValue = this.data[Number(event.currentTarget.className[0])]
+    console.log(this.currentValue);
   }
 
 }
