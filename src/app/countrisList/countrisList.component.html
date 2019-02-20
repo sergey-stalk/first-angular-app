@@ -1,0 +1,11 @@
+<ul class="list-group"  *ngIf="data">
+  <li  class="list-group-item list-group-item-action" *ngFor="let item of data">
+	  <div class="list-wrapper">
+		  <div class="countrisKey"><p>{{item.key}}</p></div>
+			<div class="countrisValue">
+				<p>{{item.countri}}</p>
+				<p>{{item.capital}}</p>
+			</div>
+		</div>
+	</li>
+</ul>

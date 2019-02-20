@@ -1,25 +1,11 @@
 <div class="sideBar">
-	<nav>
-		<div class="nav nav-tabs" id="nav-tab" role="tablist">
-			<a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Home</a>
-			<a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Profile</a>
-		</div>
-	</nav>
-		
+	<app-tabs></app-tabs>
 	<form>
 		<div class="form-group">
 			<input type="text" class="form-control" id="filter"  placeholder="Filter by county name">
 		</div>
 	</form>
-
-	<ul class="list-group"  *ngIf="countris">
-		<li  class="list-group-item list-group-item-action" *ngFor="let item of countris">
-			
-			<div class="list-wrapper">
-				<div class="countrisKey"><p>{{item.key}}</p></div>
-				<div class="countrisValue"><p>{{item.value}}</p></div>
-			</div>
-		</li>
-	</ul>
+	<app-countris-list [allData]="allData"></app-countris-list>
 </div>
+<app-more-information></app-more-information>
 
