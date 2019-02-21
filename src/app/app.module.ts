@@ -9,6 +9,10 @@ import { HeaderComponent } from './Header/header.component';
 import { CountrisListComponent } from './countrisList/countrisList.component';
 import { TabsComponent } from './tabs/tabs.component';
 import { MoreInformationComponent } from './moreInformation/moreInformation.component';
+import { LocationComponent } from './location/location.component';
+import { MainComponent } from './main/main.component';
+import { ChartComponent } from './chart/chart.component';
+import { GridComponent } from './grid/grid.component';
 
 @NgModule({
    declarations: [
@@ -17,7 +21,11 @@ import { MoreInformationComponent } from './moreInformation/moreInformation.comp
       HeaderComponent,
       CountrisListComponent,
       TabsComponent,
-      MoreInformationComponent
+      MoreInformationComponent,
+      LocationComponent,
+      MainComponent,
+      ChartComponent,
+      GridComponent
    ],
    imports: [
       BrowserModule,

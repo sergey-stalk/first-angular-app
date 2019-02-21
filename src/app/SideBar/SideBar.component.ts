@@ -1,4 +1,3 @@
-import { MoreInformationComponent } from './../moreInformation/moreInformation.component';
 import { GetAllDataService } from './getAllData.service';
 
 import { Component, OnInit } from '@angular/core';
@@ -17,8 +16,20 @@ export class SideBarComponent implements OnInit {
   continent = [];
   currency = [];
   allData = [];
+  currentCard = '';
+  tab = '1';
   constructor(private getAllDataService: GetAllDataService) { }
-  ngOnInit() {
+  cardOpen(currentCard) {
+    this.currentCard = currentCard;
+  }
+  handleSwitch(event) {
+    if (event === 'Countris') {
+      this.tab = '1';
+    } else {
+      this.tab = '2';
+    }
+  }
+  ngOnInit() {    
     this.getAllDataService.getCountris().subscribe((data) => {
       for (const key in data) {
         let item = {key:key, countri: data[key]};
@@ -58,6 +69,6 @@ export class SideBarComponent implements OnInit {
       for (let i = 0; i < this.countris.length; i++) {
         this.allData[i] = {...this.countris[i], ...this.capitals[i], ...this.phoneCode[i], ...this.iso[i], ...this.continent[i], ...this.currency[i]}
       }
-    });
+    });    
 	}
 }

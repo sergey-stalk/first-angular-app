@@ -1,9 +1,9 @@
-<div class="wrapper" *ngIf>
-  <h2>Current item</h2>
-  <p>Name of countri:</p>
-  <p>Location continent:</p>
-  <p>Capital of countri:</p>
-  <p>Phone Code of countri:</p>
-  <p>Currency of country:</p>
-  <p>ISO code:</p>
+<div class="wrapper" *ngIf="card">
+  <h2>Current item: {{card.key}}</h2>
+  <p>Name of countri: {{card.countri}}</p>
+  <p>Location continent: {{card.continent}}</p>
+  <p>Capital of countri: {{card.capital}}</p>
+  <p>Phone Code of countri: {{card.phoneCode}}</p>
+  <p>Currency of country: {{card.currency}}</p>
+  <p>ISO code: {{card.ISO}}</p>
 </div>

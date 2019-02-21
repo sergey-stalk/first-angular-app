@@ -1,10 +1,12 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+
 @Component({
-  selector: 'app-countris-list',
-  templateUrl: './countrisList.component.html',
-  styleUrls: ['./countrisList.component.css']
+  selector: 'app-location',
+  templateUrl: './location.component.html',
+  styleUrls: ['./location.component.css']
 })
-export class CountrisListComponent implements OnInit {
+export class LocationComponent implements OnInit {
+
   constructor() { }
   @Output() cardOpen = new EventEmitter();
   @Input('allData') data;
@@ -16,5 +18,4 @@ export class CountrisListComponent implements OnInit {
     this.currentCard = this.data[Number(event.currentTarget.className.split(" ")[0])]
     this.cardOpen.emit(this.currentCard);
   }
-
 }
