@@ -24,7 +24,7 @@ export class SideBarComponent implements OnInit {
   cardOpen(currentCard) {
     this.currentCard = currentCard;
   }
-  filterCountris(data, event) {
+  filterCountris(event) {
     let value = '';
     let filtred = [];
     value = event.target.value;
