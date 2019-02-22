@@ -31,6 +31,10 @@ export class SideBarComponent implements OnInit {
     if (value === '') {
       this.filtredData = this.allData;
     } else {
+      let arrValue = value.split('');
+      let firstLetter = arrValue[0].toUpperCase();
+      arrValue[0] = firstLetter;
+      value = arrValue.join('');
       filtred = this.allData.filter((item) => {
         return item.countri.includes(value);
       });
