@@ -2,10 +2,10 @@
 	<app-tabs (changeTab)="handleSwitch($event)"></app-tabs>
 	<form>
 		<div class="form-group">
-			<input type="text" class="form-control" id="filter"  placeholder="Filter by county name">
+			<input (input)="filterCountris(allData, $event)" type="text" class="form-control" id="filter" placeholder="Filter by county name">
 		</div>
 	</form>
-	<app-countris-list *ngSwitchCase='1' (cardOpen)="cardOpen($event)" [allData]="allData"></app-countris-list>
+	<app-countris-list *ngSwitchCase='1' (cardOpen)="cardOpen($event)" [filtredData]="filtredData"></app-countris-list>
 	<app-location *ngSwitchCase='2' (cardOpen)="cardOpen($event)" [allData]="allData"></app-location>
 </div>
 <app-more-information [card]="currentCard"></app-more-information>

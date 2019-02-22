@@ -7,7 +7,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class CountrisListComponent implements OnInit {
   constructor() { }
   @Output() cardOpen = new EventEmitter();
-  @Input('allData') data;
+  @Input('filtredData') data;
   currentCard = '';
 
   ngOnInit() {

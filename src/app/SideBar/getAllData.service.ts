@@ -7,6 +7,7 @@ import { Injectable } from '@angular/core';
 export class GetAllDataService {
 
   constructor(private http: HttpClient) { }
+
   proxy = 'https://cors-anywhere.herokuapp.com/';
 	public getCountris() {
 		const url = 'http://country.io/names.json';
