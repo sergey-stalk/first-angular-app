@@ -1,8 +1,8 @@
 <ul class="list-group"  *ngIf="data">
-  <li *ngFor="let item of data; let i = index" (click)="card($event)" [class]="i + ' list-group-item list-group-item-action'">
+  <li *ngFor="let item of data; let i = index" (click)="card($event)" [ngClass]="i + ' list-group-item list-group-item-action'">
 	  <div class="list-wrapper">
-		  <div class="countrisKey"><p>{{item.key}}</p></div>
-			<div class="countrisValue">
+		  <div class="countris-key"><p>{{item.key}}</p></div>
+			<div class="countris-value">
 				<p>{{item.continent}}</p>
 				<p>{{item.currency}}</p>
 			</div>

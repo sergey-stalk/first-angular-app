@@ -1,5 +1,5 @@
 import { FilterService } from './filter.service';
-import { GetAllDataService } from './getAllData.service';
+import { ApiDataService } from './apiData.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -21,7 +21,7 @@ export class SideBarComponent implements OnInit {
   tab = '1';
   filtredData = [];
   store = localStorage;
-  constructor(private getAllDataService: GetAllDataService, private filter: FilterService) { }
+  constructor(private apiDataService: ApiDataService, private filter: FilterService) { }
   cardOpen(currentCard) {
     this.currentCard = currentCard;
   }
@@ -50,37 +50,37 @@ export class SideBarComponent implements OnInit {
     }
   }
   getData(){
-    this.getAllDataService.getCountris().subscribe((data) => {
+    this.apiDataService.getCountris().subscribe((data) => {
       for (const key in data) {
         let item = {key:key, countri: data[key]};
         this.countris.push(item);
       }
     });
-    this.getAllDataService.getContinents().subscribe((data) => {
+    this.apiDataService.getContinents().subscribe((data) => {
       for (const key in data) {
         let item = {continent: data[key]};
         this.continent.push(item);
       }
     });
-    this.getAllDataService.getISO().subscribe((data) => {
+    this.apiDataService.getISO().subscribe((data) => {
       for (const key in data) {
         let item = {ISO: data[key]};
         this.iso.push(item);
       }
     });
-    this.getAllDataService.getPhonesCode().subscribe((data) => {
+    this.apiDataService.getPhonesCode().subscribe((data) => {
       for (const key in data) {
         let item = {phoneCode: data[key]};
         this.phoneCode.push(item);
       }
     });
-    this.getAllDataService.getCapitals().subscribe((data) => {
+    this.apiDataService.getCapitals().subscribe((data) => {
       for (const key in data) {
         let item = {capital: data[key]};
         this.capitals.push(item);
       }
     });
-		this.getAllDataService.getCurrency().subscribe((data) => {
+		this.apiDataService.getCurrency().subscribe((data) => {
       for (const key in data) {
         let item = {currency: data[key]};
         this.currency.push(item);
@@ -90,7 +90,6 @@ export class SideBarComponent implements OnInit {
         this.savedData[i] = {...this.countris[i], ...this.capitals[i], ...this.phoneCode[i], ...this.iso[i], ...this.continent[i], ...this.currency[i]}
       }
       this.store.setItem('data', JSON.stringify(this.savedData));
-      
     }); 
   }
 
