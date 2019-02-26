@@ -1,6 +1,10 @@
 {
   "/api": {
-    "target": "http://country.io/names.json",
-    "secure": false
+    "target": "http://country.io/",
+    "secure": false,
+    "pathRewrite": {
+      "^/api": ""
+    },
+    "changeOrigin": true
   }
 }

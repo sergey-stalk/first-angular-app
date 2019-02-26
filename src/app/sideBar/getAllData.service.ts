@@ -8,7 +8,7 @@ export class GetAllDataService {
 
   constructor(private http: HttpClient) { }
 
-  proxy = 'https://cors-anywhere.herokuapp.com/';
+  proxy = '/api';
 	public getCountris() {
 		const url = 'http://country.io/names.json';
 		return this.http.get(this.proxy + url);
