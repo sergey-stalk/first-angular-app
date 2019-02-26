@@ -4,8 +4,8 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SideBarComponent } from './SideBar/sideBar.component';
-import { HeaderComponent } from './Header/header.component';
+import { SideBarComponent } from './sideBar/sideBar.component';
+import { HeaderComponent } from './header/header.component';
 import { CountrisListComponent } from './countrisList/countrisList.component';
 import { TabsComponent } from './tabs/tabs.component';
 import { MoreInformationComponent } from './moreInformation/moreInformation.component';

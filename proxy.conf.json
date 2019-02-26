@@ -1,0 +1,6 @@
+{
+  "/api": {
+    "target": "http://country.io/names.json",
+    "secure": false
+  }
+}
