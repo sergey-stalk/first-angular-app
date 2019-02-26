@@ -7,7 +7,6 @@ import { Injectable } from '@angular/core';
 export class GetAllDataService {
 
   constructor(private http: HttpClient) { }
-
   proxy = '/api';
 	public getCountris() {
 		const url = 'http://country.io/names.json';

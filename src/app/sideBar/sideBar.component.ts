@@ -1,6 +1,5 @@
 import { FilterService } from './filter.service';
 import { GetAllDataService } from './getAllData.service';
-
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -17,9 +16,11 @@ export class SideBarComponent implements OnInit {
   continent = [];
   currency = [];
   allData = [];
+  savedData = [];
   currentCard = '';
   tab = '1';
   filtredData = [];
+  store = localStorage;
   constructor(private getAllDataService: GetAllDataService, private filter: FilterService) { }
   cardOpen(currentCard) {
     this.currentCard = currentCard;
@@ -86,13 +87,16 @@ export class SideBarComponent implements OnInit {
         
       }
       for (let i = 0; i < this.countris.length; i++) {
-        this.allData[i] = {...this.countris[i], ...this.capitals[i], ...this.phoneCode[i], ...this.iso[i], ...this.continent[i], ...this.currency[i]}
+        this.savedData[i] = {...this.countris[i], ...this.capitals[i], ...this.phoneCode[i], ...this.iso[i], ...this.continent[i], ...this.currency[i]}
       }
+      this.store.setItem('data', JSON.stringify(this.savedData));
+      
     }); 
   }
 
   ngOnInit() {
     this.getData();
+    this.allData = JSON.parse(this.store.data);
     if (this.filtredData.length === 0) {
       this.filtredData = this.allData;
     }
