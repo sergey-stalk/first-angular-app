@@ -2,7 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 @Component({
   selector: 'app-countris-list',
   templateUrl: './countrisList.component.html',
-  styleUrls: ['./countrisList.component.css']
+  styleUrls: ['./countrisList.component.scss']
 })
 export class CountrisListComponent implements OnInit {
   constructor() { }
