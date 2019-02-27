@@ -1,4 +1,5 @@
 <ul class="list-group"  *ngIf="data">
+  <!--TODO: pass data or index into card method-->
   <li *ngFor="let item of data; let i = index" (click)="card($event)" [ngClass]="i + ' list-group-item list-group-item-action'">
 	  <div class="list-wrapper">
 		  <div class="countris-key"><p>{{item.key}}</p></div>

@@ -1,7 +1,8 @@
+/*TODO: refactor styles. many styles could be global, i.e. font-family*/
 .list-group {
 	overflow: auto;
 	height: 60vh;
-	border-bottom: 1px solid #e7e0e0; 
+	border-bottom: 1px solid #e7e0e0;
   border-radius: 1%;
 	width: 100%;
 	font-family: Georgia, 'Times New Roman', Times, monospace;
@@ -21,6 +22,7 @@
 	padding: 0;
 	cursor: pointer;
 }
+/*TODO: should be static or relative*/
 .countris-value{
 	position: absolute;
 	left: 45px;

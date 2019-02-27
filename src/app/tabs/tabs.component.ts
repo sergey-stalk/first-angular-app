@@ -13,6 +13,7 @@ export class TabsComponent implements OnInit {
   ngOnInit() {
   }
   handleClick(event) {
+    // TODO: fix
     const activeClass = event.target.className.split(" ")[2];
     const value = event.target.text;
     this.changeTab.emit(value);

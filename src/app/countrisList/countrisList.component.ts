@@ -5,9 +5,12 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./countrisList.component.scss']
 })
 export class CountrisListComponent implements OnInit {
-  constructor() { }
   @Output() cardOpen = new EventEmitter();
+
+  // TODO: make @Input() data; or @Input() filtredData;
   @Input('filtredData') data;
+
+  constructor() { }
   currentCard = '';
 
   ngOnInit() {
