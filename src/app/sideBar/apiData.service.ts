@@ -9,6 +9,8 @@ export class ApiDataService {
   constructor(private http: HttpClient) { }
   proxy = '/api';
 	public getCountris() {
+	  // TODO: remove absolute urls from this file
+    // TODO: fix tslint issues across project
 		const url = 'http://country.io/names.json';
 		return this.http.get(this.proxy + url);
   }

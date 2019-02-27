@@ -21,10 +21,13 @@ export class SideBarComponent implements OnInit {
   tab = '1';
   filtredData = [];
   store = localStorage;
+
   constructor(private apiDataService: ApiDataService, private filter: FilterService) { }
+
   cardOpen(currentCard) {
     this.currentCard = currentCard;
   }
+
   filterCountris(event) {
     let value = '';
     let filtred = [];
@@ -44,13 +47,17 @@ export class SideBarComponent implements OnInit {
   }
   handleSwitch(event) {
     if (event === 'Countris') {
+      // TODO: Make enums for numbers below
       this.tab = '1';
     } else {
       this.tab = '2';
     }
   }
   getData(){
+    // TODO: getting and caching data inside SideBarService
     this.apiDataService.getCountris().subscribe((data) => {
+      // TODO: investigate helper method to reuse logic below
+      // as example: this.countris = Utils.getArrayFromObject(data)
       for (const key in data) {
         let item = {key:key, countri: data[key]};
         this.countris.push(item);
@@ -84,15 +91,18 @@ export class SideBarComponent implements OnInit {
       for (const key in data) {
         let item = {currency: data[key]};
         this.currency.push(item);
-        
+
       }
       for (let i = 0; i < this.countris.length; i++) {
         this.savedData[i] = {...this.countris[i], ...this.capitals[i], ...this.phoneCode[i], ...this.iso[i], ...this.continent[i], ...this.currency[i]}
       }
+
+      // TODO: second action in getData method
       this.store.setItem('data', JSON.stringify(this.savedData));
-    }); 
+    });
   }
 
+  // TODO: move lifecycle hooks right after constructor
   ngOnInit() {
     this.getData();
     this.allData = JSON.parse(this.store.data);
