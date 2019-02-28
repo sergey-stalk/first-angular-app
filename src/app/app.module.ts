@@ -4,13 +4,12 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SideBarComponent } from './sideBar/sideBar.component';
+import { SideBarComponent } from './countrys/side-bar/side-bar.component';
 import { HeaderComponent } from './header/header.component';
-import { CountrisListComponent } from './countrisList/countrisList.component';
-import { TabsComponent } from './tabs/tabs.component';
-import { MoreInformationComponent } from './moreInformation/moreInformation.component';
-import { LocationComponent } from './location/location.component';
-import { MainComponent } from './main/main.component';
+import { CountrysListComponent } from './countrys/countrys-list/countrys-list.component';
+import { TabsComponent } from './countrys/tabs/tabs.component';
+import { LocationComponent } from './countrys/location/location.component';
+import { MoreInformationComponent } from './countrys/more-information/more-information.component';
 import { ChartComponent } from './chart/chart.component';
 import { GridComponent } from './grid/grid.component';
 
@@ -19,11 +18,10 @@ import { GridComponent } from './grid/grid.component';
     AppComponent,
     SideBarComponent,
     HeaderComponent,
-    CountrisListComponent,
+    CountrysListComponent,
     TabsComponent,
     MoreInformationComponent,
     LocationComponent,
-    MainComponent,
     ChartComponent,
     GridComponent,
   ],

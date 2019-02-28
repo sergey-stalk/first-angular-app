@@ -2,8 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-more-information',
-  templateUrl: './moreInformation.component.html',
-  styleUrls: ['./moreInformation.component.scss'],
+  templateUrl: './more-information.component.html',
+  styleUrls: ['./more-information.component.scss'],
 })
 export class MoreInformationComponent implements OnInit {
 

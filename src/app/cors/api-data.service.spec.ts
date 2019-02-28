@@ -1,12 +1,10 @@
-/* tslint:disable:no-unused-variable */
-
+import { ApiDataService } from './api-data.service';
 import { TestBed, async, inject } from '@angular/core/testing';
-import { ApiDataService } from './apiData.service';
 
 describe('Service: GetAllData', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [ApiDataService]
+      providers: [ApiDataService],
     });
   });
 

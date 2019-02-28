@@ -5,8 +5,8 @@
 			<input (input)="filterCountris($event)" type="text" class="form-control" id="filter" placeholder="Filter by county name">
 		</div>
 	</form>
-	<app-countris-list *ngSwitchCase='1' (cardOpen)="cardOpen($event)" [filtredData]="filtredData"></app-countris-list>
-	<app-location *ngSwitchCase='2' (cardOpen)="cardOpen($event)" [allData]="allData"></app-location>
+	<app-countrys-list *ngSwitchCase="'Countrys'" (cardOpen)="cardOpen($event)" [filtredData]="filtredData"></app-countrys-list>
+	<app-location *ngSwitchCase="'Locations'" (cardOpen)="cardOpen($event)" [allData]="allData"></app-location>
 </div>
 <app-more-information [card]="currentCard"></app-more-information>
 

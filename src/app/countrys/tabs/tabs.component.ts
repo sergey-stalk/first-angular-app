@@ -6,19 +6,23 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./tabs.component.scss'],
 })
 export class TabsComponent implements OnInit {
-  countris = true;
-  locations = false;
+
   constructor() { }
-  @Output() changeTab = new EventEmitter();
+
   ngOnInit() {
   }
+
+  @Output() changeTab = new EventEmitter();
+
+  countrys = true;
+  locations = false;
+
   handleClick(event) {
     // TODO: fix
     const activeClass = event.target.className.split(' ')[2];
-    const value = event.target.text;
-    this.changeTab.emit(value);
+    this.changeTab.emit(event.target.text);
     if (activeClass !== 'active') {
-      this.countris = !this.countris;
+      this.countrys = !this.countrys;
       this.locations = !this.locations;
     }
   }
