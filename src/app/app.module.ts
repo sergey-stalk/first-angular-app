@@ -15,26 +15,26 @@ import { ChartComponent } from './chart/chart.component';
 import { GridComponent } from './grid/grid.component';
 
 @NgModule({
-   declarations: [
-      AppComponent,
-      SideBarComponent,
-      HeaderComponent,
-      CountrisListComponent,
-      TabsComponent,
-      MoreInformationComponent,
-      LocationComponent,
-      MainComponent,
-      ChartComponent,
-      GridComponent
-   ],
-   imports: [
-      BrowserModule,
-      AppRoutingModule,
-      HttpClientModule
-   ],
-   providers: [],
-   bootstrap: [
-      AppComponent
-   ]
+  declarations: [
+    AppComponent,
+    SideBarComponent,
+    HeaderComponent,
+    CountrisListComponent,
+    TabsComponent,
+    MoreInformationComponent,
+    LocationComponent,
+    MainComponent,
+    ChartComponent,
+    GridComponent,
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+  ],
+  providers: [],
+  bootstrap: [
+    AppComponent,
+  ],
 })
 export class AppModule { }

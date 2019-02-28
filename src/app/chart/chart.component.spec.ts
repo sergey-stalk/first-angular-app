@@ -11,7 +11,7 @@ describe('ChartComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ChartComponent ]
+      declarations: [ChartComponent],
     })
     .compileComponents();
   }));

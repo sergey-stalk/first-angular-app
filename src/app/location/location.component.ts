@@ -3,7 +3,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 @Component({
   selector: 'app-location',
   templateUrl: './location.component.html',
-  styleUrls: ['./location.component.scss']
+  styleUrls: ['./location.component.scss'],
 })
 export class LocationComponent implements OnInit {
 
@@ -15,7 +15,7 @@ export class LocationComponent implements OnInit {
   ngOnInit() {
   }
   card(event) {
-    this.currentCard = this.data[Number(event.currentTarget.className.split(" ")[0])]
+    this.currentCard = this.data[Number(event.currentTarget.className.split(' ')[0])];
     this.cardOpen.emit(this.currentCard);
   }
 }

@@ -1,19 +1,19 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class FilterService {
   public filerByName(arr, event) {
     let value = '';
     let filtred = [];
     value = event.target.value;
-    filtred = arr.filter((item) =>{
+    filtred = arr.filter((item) => {
       return item.countri.includes(value);
     });
-    console.log(filtred)
+    console.log(filtred);
     return filtred;
   }
-constructor() { }
+  constructor() { }
 
 }

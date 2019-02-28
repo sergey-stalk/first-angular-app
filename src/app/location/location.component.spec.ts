@@ -11,7 +11,7 @@ describe('LocationComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LocationComponent ]
+      declarations: [LocationComponent],
     })
     .compileComponents();
   }));

@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-side-bar',
   templateUrl: './sideBar.component.html',
-  styleUrls: ['./sideBar.component.scss']
+  styleUrls: ['./sideBar.component.scss'],
 })
 
 export class SideBarComponent implements OnInit {
@@ -35,8 +35,8 @@ export class SideBarComponent implements OnInit {
     if (value === '') {
       this.filtredData = this.allData;
     } else {
-      let arrValue = value.split('');
-      let firstLetter = arrValue[0].toUpperCase();
+      const arrValue = value.split('');
+      const firstLetter = arrValue[0].toUpperCase();
       arrValue[0] = firstLetter;
       value = arrValue.join('');
       filtred = this.allData.filter((item) => {
@@ -53,48 +53,50 @@ export class SideBarComponent implements OnInit {
       this.tab = '2';
     }
   }
-  getData(){
+  getData() {
     // TODO: getting and caching data inside SideBarService
     this.apiDataService.getCountris().subscribe((data) => {
       // TODO: investigate helper method to reuse logic below
       // as example: this.countris = Utils.getArrayFromObject(data)
       for (const key in data) {
-        let item = {key:key, countri: data[key]};
+        const item = { key, countri: data[key] };
         this.countris.push(item);
       }
     });
     this.apiDataService.getContinents().subscribe((data) => {
       for (const key in data) {
-        let item = {continent: data[key]};
+        const item = { continent: data[key] };
         this.continent.push(item);
       }
     });
     this.apiDataService.getISO().subscribe((data) => {
       for (const key in data) {
-        let item = {ISO: data[key]};
+        const item = { ISO: data[key] };
         this.iso.push(item);
       }
     });
     this.apiDataService.getPhonesCode().subscribe((data) => {
       for (const key in data) {
-        let item = {phoneCode: data[key]};
+        const item = { phoneCode: data[key] };
         this.phoneCode.push(item);
       }
     });
     this.apiDataService.getCapitals().subscribe((data) => {
       for (const key in data) {
-        let item = {capital: data[key]};
+        const item = { capital: data[key] };
         this.capitals.push(item);
       }
     });
-		this.apiDataService.getCurrency().subscribe((data) => {
+    this.apiDataService.getCurrency().subscribe((data) => {
       for (const key in data) {
-        let item = {currency: data[key]};
+        const item = { currency: data[key] };
         this.currency.push(item);
 
       }
+      // tslint:disable-next-line:no-increment-decrement
       for (let i = 0; i < this.countris.length; i++) {
-        this.savedData[i] = {...this.countris[i], ...this.capitals[i], ...this.phoneCode[i], ...this.iso[i], ...this.continent[i], ...this.currency[i]}
+        // tslint:disable-next-line:max-line-length
+        this.savedData[i] = { ...this.countris[i], ...this.capitals[i], ...this.phoneCode[i], ...this.iso[i], ...this.continent[i], ...this.currency[i] };
       }
 
       // TODO: second action in getData method
@@ -109,5 +111,5 @@ export class SideBarComponent implements OnInit {
     if (this.filtredData.length === 0) {
       this.filtredData = this.allData;
     }
-	}
+  }
 }

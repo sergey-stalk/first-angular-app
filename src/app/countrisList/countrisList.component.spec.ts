@@ -11,7 +11,7 @@ describe('CountrisListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CountrisListComponent ]
+      declarations: [CountrisListComponent],
     })
     .compileComponents();
   }));

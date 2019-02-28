@@ -3,7 +3,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 @Component({
   selector: 'app-tabs',
   templateUrl: './tabs.component.html',
-  styleUrls: ['./tabs.component.scss']
+  styleUrls: ['./tabs.component.scss'],
 })
 export class TabsComponent implements OnInit {
   countris = true;
@@ -14,7 +14,7 @@ export class TabsComponent implements OnInit {
   }
   handleClick(event) {
     // TODO: fix
-    const activeClass = event.target.className.split(" ")[2];
+    const activeClass = event.target.className.split(' ')[2];
     const value = event.target.text;
     this.changeTab.emit(value);
     if (activeClass !== 'active') {
