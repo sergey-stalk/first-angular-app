@@ -1,4 +1,5 @@
 import { ApiDataService } from '../../cors/api-data.service';
+import { Tabs } from './../../shared/tabs';
 
 import { Component, OnInit } from '@angular/core';
 
@@ -12,13 +13,6 @@ export class SideBarComponent implements OnInit {
   constructor(private apiDataService: ApiDataService) { }
 
    // TODO: move lifecycle hooks right after constructor
-  ngOnInit() {
-    this.getData();
-    this.allData = JSON.parse(this.store.data);
-    if (this.filtredData.length === 0) {
-      this.filtredData = this.allData;
-    }
-  }
 
   countrys = [];
   capitals = [];
@@ -32,6 +26,10 @@ export class SideBarComponent implements OnInit {
   tab = 'Countrys';
   filtredData = [];
   store = localStorage;
+  tabs = {
+    countrysTab: Tabs.countrys,
+    locationsTab: Tabs.location,
+  };
 
   cardOpen(currentCard) {
     this.currentCard = currentCard;
@@ -41,18 +39,11 @@ export class SideBarComponent implements OnInit {
     let value = '';
     let filtred = [];
     value = event.target.value;
-    if (value === '') {
-      this.filtredData = this.allData;
-    } else {
-      const arrValue = value.split('');
-      const firstLetter = arrValue[0].toUpperCase();
-      arrValue[0] = firstLetter;
-      value = arrValue.join('');
-      filtred = this.allData.filter((item) => {
-        return item.country.includes(value);
-      });
-      this.filtredData = filtred;
-    }
+    this.filtredData = this.allData;
+    filtred = this.allData.filter((item) => {
+      return item.countri.includes(value);
+    });
+    this.filtredData = filtred;
   }
 
   handleSwitch(event) {
@@ -113,5 +104,13 @@ export class SideBarComponent implements OnInit {
       // TODO: second action in getData method
       this.store.setItem('data', JSON.stringify(this.savedData));
     });
+  }
+
+  ngOnInit() {
+    this.getData();
+    this.allData = JSON.parse(this.store.data);
+    if (this.filtredData.length === 0) {
+      this.filtredData = this.allData;
+    }
   }
 }

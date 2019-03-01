@@ -11,7 +11,6 @@ export class FilterService {
     filtred = arr.filter((item) => {
       return item.countri.includes(value);
     });
-    console.log(filtred);
     return filtred;
   }
   constructor() { }

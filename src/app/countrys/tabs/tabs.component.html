@@ -2,7 +2,7 @@
 	<div class="nav nav-tabs" id="nav-tab" role="tablist">
 		<a 
 			[ngClass]="{'active':countrys}" 
-			(click)="handleClick($event)" 
+			(click)="handleClick(tabs.countrysTab)" 
 			class="nav-item nav-link active" 
 			id="nav-home-tab"
 			data-toggle="tab" 
@@ -10,7 +10,7 @@
 			aria-controls="nav-lountris">Countrys</a>
 		<a 
 			[ngClass]="{'active':locations}" 
-			(click)="handleClick($event)" 
+			(click)="handleClick(tabs.locationsTab)" 
 			class="nav-item nav-link" 
 			id="nav-profile-tab"
 			data-toggle="tab" 

@@ -1,3 +1,5 @@
+import { Tabs } from './../../shared/tabs';
+
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
@@ -14,16 +16,22 @@ export class TabsComponent implements OnInit {
 
   @Output() changeTab = new EventEmitter();
 
+  cursor = 'Countrys';
   countrys = true;
   locations = false;
 
-  handleClick(event) {
-    // TODO: fix
-    const activeClass = event.target.className.split(' ')[2];
-    this.changeTab.emit(event.target.text);
-    if (activeClass !== 'active') {
+  tabs: any = {
+    countrysTab: Tabs.countrys,
+    locationsTab: Tabs.location,
+  };
+
+  handleClick(val) {
+    if (this.cursor !== val) {
       this.countrys = !this.countrys;
       this.locations = !this.locations;
+      this.cursor = val;
     }
+
+    this.changeTab.emit(val);
   }
 }
