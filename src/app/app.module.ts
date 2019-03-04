@@ -1,3 +1,5 @@
+import { CacheService } from './cors/cache.service';
+import { ApiDataService } from './cors/api-data.service';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './cors/header/header.component';
@@ -30,7 +32,10 @@ import { NgModule } from '@angular/core';
     AppRoutingModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    ApiDataService,
+    CacheService,
+  ] ,
   bootstrap: [
     AppComponent,
   ],

@@ -1,37 +1,34 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class ApiDataService {
 
   constructor(private http: HttpClient) { }
   proxy = '/api';
   public getCountris() {
-    // TODO: remove absolute urls from this file
-    // TODO: fix tslint issues across project
-    const url = 'http://country.io/names.json';
+
+    const url = 'names.json';
     return this.http.get(this.proxy + url);
   }
   public getCapitals() {
-    const url = 'http://country.io/capital.json';
+    const url = 'capital.json';
     return this.http.get(this.proxy + url);
   }
   public getISO() {
-    const url = 'http://country.io/iso3.json';
+    const url = 'iso3.json';
     return this.http.get(this.proxy + url);
   }
   public getCurrency() {
-    const url = 'http://country.io/currency.json';
+    const url = 'currency.json';
     return this.http.get(this.proxy + url);
   }
   public getContinents() {
-    const url = 'http://country.io/continent.json';
+    const url = 'continent.json';
     return this.http.get(this.proxy + url);
   }
   public getPhonesCode() {
-    const url = 'http://country.io/phone.json';
+    const url = 'phone.json';
     return this.http.get(this.proxy + url);
   }
 }

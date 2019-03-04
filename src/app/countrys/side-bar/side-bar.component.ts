@@ -1,3 +1,4 @@
+import { CacheService } from '../../cors/cache.service';
 import { ApiDataService } from '../../cors/api-data.service';
 import { Tabs } from './../../shared/tabs';
 
@@ -10,7 +11,7 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class SideBarComponent implements OnInit {
-  constructor(private apiDataService: ApiDataService) { }
+  constructor(private apiDataService: ApiDataService, private cacheService:CacheService) { }
 
    // TODO: move lifecycle hooks right after constructor
 
@@ -52,6 +53,7 @@ export class SideBarComponent implements OnInit {
 
   getData() {
     // TODO: getting and caching data inside SideBarService
+     // Need special servise
     this.apiDataService.getCountris().subscribe((data) => {
       // TODO: investigate helper method to reuse logic below
       // as example: this.countris = Utils.getArrayFromObject(data)
@@ -102,7 +104,10 @@ export class SideBarComponent implements OnInit {
       }
 
       // TODO: second action in getData method
+      // Need special servise
+      this.cacheService.checkStorage();
       this.store.setItem('data', JSON.stringify(this.savedData));
+
     });
   }
 
@@ -112,5 +117,6 @@ export class SideBarComponent implements OnInit {
     if (this.filtredData.length === 0) {
       this.filtredData = this.allData;
     }
+
   }
 }
