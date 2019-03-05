@@ -1,5 +1,7 @@
-import { CacheService } from './cors/cache.service';
-import { ApiDataService } from './cors/api-data.service';
+import { FilterService } from './shared/filter.service';
+import { StorageControlService } from './shared/storage-control.service';
+import { TransformDataService } from './cors/transform-data.service';
+import { ApiDataService } from './shared/api-data.service';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './cors/header/header.component';
@@ -34,7 +36,9 @@ import { NgModule } from '@angular/core';
   ],
   providers: [
     ApiDataService,
-    CacheService,
+    TransformDataService,
+    StorageControlService,
+    FilterService,
   ] ,
   bootstrap: [
     AppComponent,

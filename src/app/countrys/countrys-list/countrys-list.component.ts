@@ -5,19 +5,19 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./countrys-list.component.scss'],
 })
 export class CountrysListComponent implements OnInit {
-  @Output() cardOpen = new EventEmitter();
 
-  // TODO: make @Input() data; or @Input() filtredData;
-  @Input('filtredData') data;
+  @Output() cardOpen = new EventEmitter();
+  @Input() allData;
 
   constructor() { }
+
   currentCard = '';
 
   ngOnInit() {
   }
-  card(event) {
-    this.currentCard = this.data[Number(event.currentTarget.className.split(' ')[0])];
+
+  card(index) {
+    this.currentCard = this.allData[index];
     this.cardOpen.emit(this.currentCard);
   }
-
 }

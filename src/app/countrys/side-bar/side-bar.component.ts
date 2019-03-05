@@ -1,5 +1,5 @@
-import { CacheService } from '../../cors/cache.service';
-import { ApiDataService } from '../../cors/api-data.service';
+import { FilterService } from './../../shared/filter.service';
+import { StorageControlService } from '../../shared/storage-control.service';
 import { Tabs } from './../../shared/tabs';
 
 import { Component, OnInit } from '@angular/core';
@@ -11,22 +11,18 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class SideBarComponent implements OnInit {
-  constructor(private apiDataService: ApiDataService, private cacheService:CacheService) { }
 
-   // TODO: move lifecycle hooks right after constructor
+  constructor(
+    private storageControlService: StorageControlService,
+    private filterService: FilterService) { }
 
-  countrys = [];
-  capitals = [];
-  iso = [];
-  phoneCode = [];
-  continent = [];
-  currency = [];
+  ngOnInit() {
+    this.getData();
+  }
+
   allData = [];
-  savedData = [];
   currentCard = '';
   tab = 'Countrys';
-  filtredData = [];
-  store = localStorage;
   tabs = {
     countrysTab: Tabs.countrys,
     locationsTab: Tabs.location,
@@ -37,14 +33,7 @@ export class SideBarComponent implements OnInit {
   }
 
   filterCountris(event) {
-    let value = '';
-    let filtred = [];
-    value = event.target.value;
-    this.filtredData = this.allData;
-    filtred = this.allData.filter((item) => {
-      return item.countri.includes(value);
-    });
-    this.filtredData = filtred;
+    this.allData = this.filterService.filterCountris(event.target.value);
   }
 
   handleSwitch(event) {
@@ -52,71 +41,6 @@ export class SideBarComponent implements OnInit {
   }
 
   getData() {
-    // TODO: getting and caching data inside SideBarService
-     // Need special servise
-    this.apiDataService.getCountris().subscribe((data) => {
-      // TODO: investigate helper method to reuse logic below
-      // as example: this.countris = Utils.getArrayFromObject(data)
-      for (const key in data) {
-        const item = { key, countri: data[key] };
-        this.countrys.push(item);
-      }
-    });
-
-    this.apiDataService.getContinents().subscribe((data) => {
-      for (const key in data) {
-        const item = { continent: data[key] };
-        this.continent.push(item);
-      }
-    });
-
-    this.apiDataService.getISO().subscribe((data) => {
-      for (const key in data) {
-        const item = { ISO: data[key] };
-        this.iso.push(item);
-      }
-    });
-
-    this.apiDataService.getPhonesCode().subscribe((data) => {
-      for (const key in data) {
-        const item = { phoneCode: data[key] };
-        this.phoneCode.push(item);
-      }
-    });
-
-    this.apiDataService.getCapitals().subscribe((data) => {
-      for (const key in data) {
-        const item = { capital: data[key] };
-        this.capitals.push(item);
-      }
-    });
-
-    this.apiDataService.getCurrency().subscribe((data) => {
-      for (const key in data) {
-        const item = { currency: data[key] };
-        this.currency.push(item);
-
-      }
-      // tslint:disable-next-line:no-increment-decrement
-      for (let i = 0; i < this.countrys.length; i++) {
-        // tslint:disable-next-line:max-line-length
-        this.savedData[i] = { ...this.countrys[i], ...this.capitals[i], ...this.phoneCode[i], ...this.iso[i], ...this.continent[i], ...this.currency[i] };
-      }
-
-      // TODO: second action in getData method
-      // Need special servise
-      this.cacheService.checkStorage();
-      this.store.setItem('data', JSON.stringify(this.savedData));
-
-    });
-  }
-
-  ngOnInit() {
-    this.getData();
-    this.allData = JSON.parse(this.store.data);
-    if (this.filtredData.length === 0) {
-      this.filtredData = this.allData;
-    }
-
+    this.allData = this.storageControlService.checkStorage();
   }
 }
