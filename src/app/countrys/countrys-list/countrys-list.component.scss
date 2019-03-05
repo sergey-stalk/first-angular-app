@@ -1,36 +1,48 @@
 /*TODO: refactor styles. many styles could be global, i.e. font-family*/
 .list-group {
 	overflow: auto;
-	height: 60vh;
+	height: 400px;
 	border-bottom: 1px solid #e7e0e0;
   border-radius: 1%;
 	width: 100%;
 	font-family: Georgia, 'Times New Roman', Times, monospace;
+	font-size: 14px;
 }
+
 .list-wrapper{
 	display: flex;
-	height: 50px;
+	height: 60px;
 }
-.countris-key {
-	justify-content: flex-start;
-	padding-right: 10px;
-	padding-left: 10px;
 
-	line-height: 34px;
+.countrys-key {
+	text-align: center;
+	width: 45px;
+	line-height: 44px;
+
 }
+
 .list-group-item {
 	padding: 0;
 	cursor: pointer;
 }
+
 /*TODO: should be static or relative*/
-.countris-value{
-	position: absolute;
-	left: 45px;
+.countrys-value{
 	padding-left: 10px;
 	border-left: 1px solid #c3c3c3;
 	height: 100%;
+	width: 100%;
+	box-sizing: border-box;
 }
-p {
+
+.countrys-key-item {
 	padding-top: 8px;
-	font-size: 14px;
 }
+
+.countrys-value-item {
+	padding-top: 5%;
+}
+
+
+
+
