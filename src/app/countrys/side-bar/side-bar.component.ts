@@ -30,6 +30,8 @@ export class SideBarComponent implements OnInit {
 
   cardOpen(currentCard) {
     this.currentCard = currentCard;
+    console.log(this.currentCard);
+    
   }
 
   filterCountris(event) {

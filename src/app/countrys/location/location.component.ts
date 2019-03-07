@@ -9,13 +9,13 @@ export class LocationComponent implements OnInit {
 
   constructor() { }
   @Output() cardOpen = new EventEmitter();
-  @Input('allData') data;
+  @Input() allData;
   currentCard = '';
 
   ngOnInit() {
   }
-  card(event) {
-    this.currentCard = this.data[Number(event.currentTarget.className.split(' ')[0])];
+  card(index) {
+    this.currentCard = this.allData[index];
     this.cardOpen.emit(this.currentCard);
   }
 }

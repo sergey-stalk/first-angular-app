@@ -1,4 +1,4 @@
-import { ApiDataService } from '../shared/api-data.service';
+import { ApiDataService } from './api-data.service';
 import { TestBed, async, inject } from '@angular/core/testing';
 
 describe('Service: GetAllData', () => {

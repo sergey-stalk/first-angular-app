@@ -1,4 +1,4 @@
-import { ApiDataService } from '../shared/api-data.service';
+import { ApiDataService } from './api-data.service';
 import { Injectable } from '@angular/core';
 
 @Injectable()
