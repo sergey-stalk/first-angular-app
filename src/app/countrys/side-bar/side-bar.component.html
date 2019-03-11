@@ -1,4 +1,4 @@
-<div class="sideBar" [ngSwitch]="tab">
+<div class="side-bar" [ngSwitch]="tab">
 	<app-tabs (changeTab)="handleSwitch($event)"></app-tabs>
 	<form>
 		<div class="form-group">
@@ -8,5 +8,5 @@
 	<app-countrys-list *ngSwitchCase="tabs.countrysTab" (cardOpen)="cardOpen($event)" [allData]="allData"></app-countrys-list>
 	<app-location *ngSwitchCase="tabs.locationsTab" (cardOpen)="cardOpen($event)" [allData]="allData"></app-location>
 </div>
-<app-more-information [card]="currentCard"></app-more-information>
+<app-detail class="detail" [card]="currentCard"></app-detail>
 

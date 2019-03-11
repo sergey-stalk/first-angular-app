@@ -9,7 +9,7 @@ import { SideBarComponent } from './countrys/side-bar/side-bar.component';
 import { CountrysListComponent } from './countrys/countrys-list/countrys-list.component';
 import { TabsComponent } from './countrys/tabs/tabs.component';
 import { LocationComponent } from './countrys/location/location.component';
-import { MoreInformationComponent } from './countrys/more-information/more-information.component';
+import { DetailComponent } from './countrys/detail/detail.component';
 import { ChartComponent } from './chart/chart.component';
 import { GridComponent } from './grid/grid.component';
 
@@ -24,7 +24,7 @@ import { NgModule } from '@angular/core';
     HeaderComponent,
     CountrysListComponent,
     TabsComponent,
-    MoreInformationComponent,
+    DetailComponent,
     LocationComponent,
     ChartComponent,
     GridComponent,

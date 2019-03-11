@@ -1,9 +1,10 @@
 .wrapper {
-  position: absolute;
-  top:30%;
-  left: 40%;
+  display: block;
   border: 1px solid #c3c3c3;
   padding: 20px;
+  position: absolute;
+  top: 100px;
+  left: 40%;
 }
 .title {
   font-size: 25px;
