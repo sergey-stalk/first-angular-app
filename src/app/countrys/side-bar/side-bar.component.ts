@@ -33,7 +33,9 @@ export class SideBarComponent implements OnInit {
   }
 
   filterCountris(event) {
-    this.allData = this.filterService.filterCountris(event.target.value);
+    this.filterService.filterCountris(event.target.value).subscribe((data) => {
+      this.allData = data;
+    });
   }
 
   handleSwitch(event) {
@@ -41,6 +43,8 @@ export class SideBarComponent implements OnInit {
   }
 
   getData() {
-    this.allData = this.storageControlService.checkStorage();
+    this.storageControlService.checkStorage().subscribe((data) => {
+      this.allData = data;
+    });
   }
 }

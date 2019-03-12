@@ -1,5 +1,7 @@
 import { ApiDataService } from './api-data.service';
 import { Injectable } from '@angular/core';
+import { forkJoin, Observable } from 'rxjs'
+import { map, tap } from 'rxjs/operators'
 
 @Injectable()
 
@@ -30,26 +32,40 @@ export class TransformDataService {
     this.createDB();
   }
 
-  getApiData () {
-    this.apiDataService.getCapitals().subscribe((data) => {
-      this.pushToArray(data, this.capitals, 'capital');
-    });
-    this.apiDataService.getContinents().subscribe((data) => {
-      this.pushToArray(data, this.continent, 'continent');
-    });
-    this.apiDataService.getCountris().subscribe((data) => {
-      this.pushToArray(data, this.countrys, 'country');
-    });
-    this.apiDataService.getISO().subscribe((data) => {
-      this.pushToArray(data, this.iso, 'iso');
-    });
-    this.apiDataService.getPhonesCode().subscribe((data) => {
-      this.pushToArray(data, this.phoneCode, 'phoneCode');
-    });
-    this.apiDataService.getCurrency().subscribe((data) => {
-      this.pushToArray(data, this.currency, 'currency');
-      this.mergeData();
-    });
+  //это не лучший подход загружать все данные одним методом. Они должны подгружаться по необходимости. Не должно быть универсального метода с громким названием "getApiData". Должно быть много мелких методов. загружающих по одному ресурсу. Но можно сделать несколько объединяющих. Ниже преведена костыльная имплементация, чтобы побороть "асинхронность". В идеале старайся не подписываться не на что в сервисе. Лучше создавай методы которые возвращают обзерваблы и подписывайся на компонентах. Если прямо хочется в сервисе, лучше создать 2 метода - 1 возвращает обзервабл, второй с подпиской.
+  getApiData (): Observable<any> {
+    return forkJoin(
+      this.apiDataService.getCapitals()
+        .pipe(tap((data) => {
+          this.pushToArray(data, this.capitals, 'capital');
+        })),
+      this.apiDataService.getContinents()
+        .pipe(tap((data) => {
+          this.pushToArray(data, this.continent, 'continent');
+        })),
+      this.apiDataService.getCountris()
+        .pipe(tap((data) => {
+          this.pushToArray(data, this.countrys, 'country');
+        })),
+      this.apiDataService.getISO()
+        .pipe(tap((data) => {
+          this.pushToArray(data, this.iso, 'iso');
+        })),
+      this.apiDataService.getPhonesCode()
+        .pipe(tap((data) => {
+          this.pushToArray(data, this.phoneCode, 'phoneCode');
+        })),
+      this.apiDataService.getCurrency()
+        .pipe(tap((data) => {
+          this.pushToArray(data, this.currency, 'currency');
+        })),
+    ).pipe(
+      tap(() => {
+        this.mergeData();
+      }),
+      map(() => {
+        return this.allData;
+      }));
   }
 
   pushToArray (data, arr, value) {
