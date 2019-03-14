@@ -2,7 +2,7 @@
 	<app-tabs (changeTab)="handleSwitch($event)"></app-tabs>
 	<form>
 		<div class="form-group">
-			<input (input)="filterCountris($event)" type="text" class="form-control" id="filter" placeholder="Filter by county name">
+			<input (input)="filterCountrys($event)" type="text" class="form-control" id="filter" placeholder="Filter by county name">
 		</div>
 	</form>
 	<app-countrys-list *ngSwitchCase="tabs.countrysTab" (cardOpen)="cardOpen($event)" [allData]="allData"></app-countrys-list>

@@ -1,4 +1,6 @@
-import { TransformDataService } from '../cors/transform-data.service';
+import { TransformDataService } from '../core/transform-data.service';
+
+import { Observable, of } from 'rxjs';
 import { Injectable } from '@angular/core';
 
 @Injectable()
@@ -6,17 +8,18 @@ export class StorageControlService {
 
   constructor(private transformDataService: TransformDataService) { }
 
-  checkStorage() {
+  callStorage(): Observable<any> {
     if (!localStorage.data || localStorage.data === '') {
-      this.transformDataService.getApiData();
-      this.createDB(this.transformDataService.allData);
-    } else {
-      return JSON.parse(localStorage.data);
+      this.createDB();
+      return this.transformDataService.getApiData();
     }
+    return of(JSON.parse(localStorage.data));
   }
 
-  createDB (data) {
-    const dataStringify = JSON.stringify(data);
-    localStorage.setItem('data', dataStringify);
+  createDB () {
+    this.transformDataService.getApiData().subscribe((data) => {
+      const dataStringify = JSON.stringify(data);
+      localStorage.setItem('data', dataStringify);
+    });
   }
 }

@@ -9,15 +9,19 @@ export class FilterService {
 
   constructor(private storageControlService: StorageControlService) { }
 
-  filterCountris(value) {
+  filterCountrys(value) {
 
-    this.allData = this.storageControlService.checkStorage();
-    if (value.length === 0 || value === '') {
-      return this.allData;
-    }
+    this.storageControlService.callStorage().subscribe((data) => {
+      this.allData = data;
 
-    this.filtredData = this.allData.filter((data) => {
-      return data.country.toLowerCase().includes(value.toLowerCase());
+      if (value.length === 0 || value === '') {
+        this.filtredData = this.allData
+      } else {
+        this.filtredData = this.allData.filter((data) => {
+          return data.country.toLowerCase().includes(value.toLowerCase());
+        });
+      }
+      return this.filtredData;
     });
 
     return this.filtredData;
