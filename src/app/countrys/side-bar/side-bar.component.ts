@@ -20,7 +20,7 @@ export class SideBarComponent implements OnInit {
     this.getData();
   }
 
-  allData = [];
+  allData:any = [];
   currentCard = '';
   tab = 'Countrys';
   tabs = {
@@ -32,8 +32,8 @@ export class SideBarComponent implements OnInit {
     this.currentCard = currentCard;
   }
 
-  filterCountris(event) {
-    this.allData = this.filterService.filterCountris(event.target.value);
+  filterCountrys(event) {
+    this.allData = this.filterService.filterCountrys(event.target.value);
   }
 
   handleSwitch(event) {
@@ -41,6 +41,9 @@ export class SideBarComponent implements OnInit {
   }
 
   getData() {
-    this.allData = this.storageControlService.checkStorage();
+    this.storageControlService.callStorage().subscribe((data) => {
+      this.allData = data;
+      console.log(this.allData);
+    });
   }
 }

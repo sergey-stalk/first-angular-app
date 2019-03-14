@@ -1,10 +1,10 @@
 import { FilterService } from './shared/filter.service';
 import { StorageControlService } from './shared/storage-control.service';
-import { TransformDataService } from './cors/transform-data.service';
-import { ApiDataService } from './cors/api-data.service';
+import { TransformDataService } from './core/transform-data.service';
+import { ApiDataService } from './core/api-data.service';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './cors/header/header.component';
+import { HeaderComponent } from './core/header/header.component';
 import { SideBarComponent } from './countrys/side-bar/side-bar.component';
 import { CountrysListComponent } from './countrys/countrys-list/countrys-list.component';
 import { TabsComponent } from './countrys/tabs/tabs.component';
