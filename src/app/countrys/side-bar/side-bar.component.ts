@@ -20,6 +20,10 @@ export class SideBarComponent implements OnInit {
     this.getData();
   }
 
+  resetData() {
+    this.getData();
+  }
+
   allData:any = [];
   currentCard = '';
   tab = 'Countrys';
@@ -43,7 +47,6 @@ export class SideBarComponent implements OnInit {
   getData() {
     this.storageControlService.callStorage().subscribe((data) => {
       this.allData = data;
-      console.log(this.allData);
     });
   }
 }

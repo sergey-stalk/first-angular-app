@@ -1,4 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { SideBarComponent } from './../side-bar/side-bar.component';
+import { StorageControlService } from './../../shared/storage-control.service';
+
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-detail',
@@ -7,11 +11,25 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class DetailComponent implements OnInit {
 
-  constructor() { }
+  constructor(private storageControlService: StorageControlService) { }
 
   @Input() card;
+  @Input() allData;
+  @Output() reset = new EventEmitter();
 
   ngOnInit() {
   }
 
+  change = '';
+
+  saveData(form: NgForm)  {
+    this.allData.forEach((el, i) => {
+      if (el.key === this.card.key) {
+        this.storageControlService.updateStorage(form.value, i);
+        this.card = form.value;
+        this.reset.emit();
+      }
+    });
+    this.change = '';
+  }
 }

@@ -1,7 +1,7 @@
 import { ApiDataService } from './api-data.service';
 import { Injectable } from '@angular/core';
-import { forkJoin, Observable } from 'rxjs'
-import { map, tap } from 'rxjs/operators'
+import { forkJoin, Observable } from 'rxjs';
+import { map, tap } from 'rxjs/operators';
 
 @Injectable()
 
@@ -17,11 +17,6 @@ export class TransformDataService {
   currency = [];
   allData = [];
 
-  createDB () {
-    const dataStringify = JSON.stringify(this.allData);
-    localStorage.setItem('data', dataStringify);
-  }
-
   mergeData () {
     for (const i in this.countrys) {
       this.allData[i] = { ...this.countrys[i],
@@ -29,7 +24,6 @@ export class TransformDataService {
         ...this.iso[i], ...this.continent[i],
         ...this.currency[i] };
     }
-    this.createDB();
   }
 
   getApiData (): Observable<any> {

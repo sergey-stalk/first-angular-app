@@ -8,5 +8,5 @@
 	<app-countrys-list *ngSwitchCase="tabs.countrysTab" (cardOpen)="cardOpen($event)" [allData]="allData"></app-countrys-list>
 	<app-location *ngSwitchCase="tabs.locationsTab" (cardOpen)="cardOpen($event)" [allData]="allData"></app-location>
 </div>
-<app-detail class="detail" [card]="currentCard"></app-detail>
+<app-detail (reset)="resetData()" class="detail" [allData]="allData" [card]="currentCard"></app-detail>
 

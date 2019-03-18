@@ -13,6 +13,7 @@ import { DetailComponent } from './countrys/detail/detail.component';
 import { ChartComponent } from './chart/chart.component';
 import { GridComponent } from './grid/grid.component';
 
+import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -32,6 +33,7 @@ import { NgModule } from '@angular/core';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     HttpClientModule,
   ],
   providers: [

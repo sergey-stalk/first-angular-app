@@ -1,7 +1,6 @@
 import { StorageControlService } from './storage-control.service';
 import { Injectable } from '@angular/core';
 
-
 @Injectable()
 export class FilterService {
 
@@ -13,6 +12,7 @@ export class FilterService {
   filterCountrys(value) {
 
     this.storageControlService.callStorage().subscribe((data) => {
+
       this.allData = data;
 
       if (value.length === 0 || value === '') {
