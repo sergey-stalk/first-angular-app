@@ -1,5 +1,5 @@
-import { FilterService } from './shared/filter.service';
-import { StorageControlService } from './shared/storage-control.service';
+import { StorageControlService } from './countrys/storage-control.service';
+import { FilterService } from './countrys/side-bar/filter.service';
 import { TransformDataService } from './core/transform-data.service';
 import { ApiDataService } from './core/api-data.service';
 import { AppRoutingModule } from './app-routing.module';

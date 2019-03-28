@@ -1,5 +1,5 @@
-import { FilterService } from './../../shared/filter.service';
-import { StorageControlService } from '../../shared/storage-control.service';
+import { StorageControlService } from '../storage-control.service';
+import { FilterService } from './filter.service';
 import { Tabs } from './../../shared/tabs';
 
 import { Component, OnInit } from '@angular/core';

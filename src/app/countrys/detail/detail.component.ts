@@ -1,5 +1,4 @@
-import { SideBarComponent } from './../side-bar/side-bar.component';
-import { StorageControlService } from './../../shared/storage-control.service';
+import { StorageControlService } from '../storage-control.service';
 
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
