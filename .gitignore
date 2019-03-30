@@ -22,6 +22,7 @@ speed-measure-plugin.json
 *.sublime-workspace
 
 
+
 # IDE - VSCode
 *.editorconfig
 /.vscode/
@@ -44,5 +45,4 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
-*tslint.json
 tsconfig.json
