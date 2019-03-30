@@ -23,6 +23,7 @@ speed-measure-plugin.json
 
 
 # IDE - VSCode
+/e2e
 .editorconfig
 /.vscode/
 !.vscode/settings.json
