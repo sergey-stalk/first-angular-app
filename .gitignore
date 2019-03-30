@@ -7,7 +7,7 @@
 
 # dependencies
 /node_modules
-/.vscode
+/.vscode/*
 
 # profiling files
 chrome-profiler-events.json
