@@ -1,4 +1,4 @@
-import { TransformDataService } from '../core/transform-data.service';
+import { TransformDataService } from '../core/services/transform-data.service';
 
 import { Observable, of } from 'rxjs';
 import { Injectable } from '@angular/core';

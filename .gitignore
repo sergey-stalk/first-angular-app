@@ -12,6 +12,7 @@
 chrome-profiler-events.json
 speed-measure-plugin.json
 
+
 # IDEs and editors
 /.idea
 .project
@@ -24,7 +25,8 @@ speed-measure-plugin.json
 
 
 # IDE - VSCode
-*.editorconfig
+.editorconfig
+tslint
 /.vscode/
 !.vscode/settings.json
 !.vscode/tasks.json
@@ -45,4 +47,5 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
-/tsconfig.json
+
+
